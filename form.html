@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Review Form</title>
+</head>
+<body>
+    <h1>User Review Form</h1>
+
+    <?php
+    // Check if the form has been submitted
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // Collect form data using $_POST superglobal
+        $name = $_POST["name"];
+        $rating = $_POST["rating"];
+        $comment = $_POST["comment"];
+        
+        // Save user data in a cookie using setcookie
+        setcookie("user_review", json_encode(["name" => $name, "rating" => $rating, "comment" => $comment]), time() + 3600);
+    }
+
+    // Retrieve user data from the cookie using $_COOKIE superglobal
+    $userReview = isset($_COOKIE["user_review"]) ? json_decode($_COOKIE["user_review"], true) : null;
+    
+    ?>
+
+    <h2>Submit a Review</h2>
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating" required>
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+        </select><br><br>
+
+        <label for="comment">Comment:</label><br>
+        <textarea id="comment" name="comment" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit Review">
+    </form>
+
+    <?php
+    // Display user review using $_REQUEST superglobal (can handle both GET and POST requests)
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        echo "<h2>Your Review:</h2>";
+        echo "<p><strong>Name:</strong> " . htmlspecialchars($name) . "</p>";
+        echo "<p><strong>Rating:</strong> " . htmlspecialchars($rating) . " Stars</p>";
+        echo "<p><strong>Comment:</strong> " . nl2br(htmlspecialchars($comment)) . "</p>";
+    }
+
+    // Display the most recent user review from the cookie
+    if ($userReview) {
+        echo "<h2>Most Recent Review:</h2>";
+        echo "<p><strong>Name:</strong> " . htmlspecialchars($userReview["name"]) . "</p>";
+        echo "<p><strong>Rating:</strong> " . htmlspecialchars($userReview["rating"]) . " Stars</p>";
+        echo "<p><strong>Comment:</strong> " . nl2br(htmlspecialchars($userReview["comment"])) . "</p>";
+    }
+    ?>
+
+</body>
+</html>
