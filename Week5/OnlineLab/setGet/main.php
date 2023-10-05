@@ -6,7 +6,7 @@ echo "<br>";
 $newPath = $currentPath . PATH_SEPARATOR . __DIR__ . '/include'; 
 // echo $newPath;
 
-set_include_path($newPath);
+set_include_path($newPath); //********** */
 echo get_include_path();
 echo "<br>";
 
