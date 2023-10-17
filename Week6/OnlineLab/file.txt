@@ -1,0 +1,7 @@
+This msg was writen using 'w' method
+This msg was writen using 'a' method
+This msg was writen using 'a' method
+This msg was writen using 'a' method
+This msg was writen using 'a' method
+This msg was writen using 'a' method
+This msg was writen using 'a' method
