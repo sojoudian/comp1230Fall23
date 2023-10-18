@@ -1,0 +1,49 @@
+what do you know about "ngrok" application on "Github" with address of https://github.com/inconshreveable/ngrok
+
+
+how should I compile "ngrok" application on "Github" with address of https://github.com/inconshreveable/ngrok with Go 1.21 on debian
+
+
+
+
+
+ngrok docs	
+
+go env -w GO111MODULE=off
+
+NGROK_DOMAIN=”tunels.io”
+
+openssl genrsa -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -subj /CN=$NGROK_DOMAIN -days 5000 -out rootCA.pem
+openssl genrsa -out device.key 2048
+openssl req -new -key device.key -subj /CN=$NGROK_DOMAIN -out device.csr
+openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
+
+
+
+
+
+
+curl -L -o 
+
+
+apt install build-essential mercurial git bison -y 
+export GO111MODULE=off
+export PATH=$PATH:$(go env GOPATH)/bin
+NGROK_DOMAIN="tunels.tech"
+
+
+
+openssl genrsa -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -subj "/CN=$NGROK_DOMAIN" -days 5000 -out rootCA.pem
+openssl genrsa -out device.key 2048
+openssl req -new -key device.key -subj "/CN=$NGROK_DOMAIN" -out device.csr
+openssl x509 -req -in device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000
+
+
+
+./bin/ngrokd-tlsKey=device.key -tlsCrt=device.crt -domain="$NGROK_DOMAIN" -httpAddr=":8000" -httpsAddr=":8001"
+    
+    
+echo -e "server_addr: $NGROK_DOMAIN:4443\ntrust_host_root_certs: false" > ngrok-config
+./bin/ngrok -config=ngrok-config 8080

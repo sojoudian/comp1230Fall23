@@ -1,0 +1,3 @@
+1,user1,pass1,admin
+2,user2,pass2,user
+3,user3,pass3,user

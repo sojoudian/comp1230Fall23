@@ -1,0 +1,13 @@
+user2,CUFOLDER,user2 folder is created,23-10-16 10:10:06
+user2,CUFOLDER,user2 folder is created,10-16-2023 10:43:46.000000
+user2,CUFOLDER,"user2 folder is created","10-16-2023 10:45:46.000000"
+user2,CUFOLDER,"user2 folder is created","10-16-2023 10:46:11.000000"
+user2,CUFOLDER,"user2 folder is created","10-16-2023 10:46:32.000000"
+user1,ULogin,"user1 logged in","10-16-2023 10:47:59.000000"user1,ULogin,"user1 logged in","10-17-2023 01:55:42.000000"
+user1,CUFOLDER,"user1 folder is created","10-17-2023 01:55:42.000000"
+user1,CUFOLDER,"user1 folder is created","10-17-2023 01:56:33.000000"
+user1,ULogin,"user1 logged in","10-17-2023 02:00:52.000000"
+user1,CUFOLDER,"user1 folder is created","10-17-2023 02:00:52.000000"
+user1,ULogin,"user1 logged in","10-17-2023 02:01:50.000000"
+user1,CUFOLDER,"user1 folder is created","10-17-2023 02:01:50.000000"
+user1,ULogin,"user1 logged in","10-17-2023 04:32:22.000000"
