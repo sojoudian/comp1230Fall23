@@ -4,6 +4,11 @@ class Book {
     private $author;
     private $isbn;
 
+    const HARD_COVER=1;
+    const SOFT_COVER=2;
+    //echo "Book cover type: " . Book::HARD_COVER;
+    //echo "Book cover type: " . Book::SOFT_COVER;
+
     //ex3
     private static $count =0;
     public static function getCount(){
@@ -27,4 +32,7 @@ class Book {
         }
     }
 }
+
+echo "Book cover type: " . Book::HARD_COVER;
+
 ?>
