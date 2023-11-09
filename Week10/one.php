@@ -90,6 +90,4 @@ J. K. Rowling', '1234567890');
 
 //Clone the book
 $cloneBookTwo = clone $bookTwo;
-
-
 ?>
