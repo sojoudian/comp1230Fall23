@@ -31,6 +31,21 @@ class Book {
             $this->title=$title;
         }
     }
+
+    //EX5
+    public function __set($property, $value){
+        if(property_exists($this, $property)){
+            $this->$property=$value; // Implement validation if necessary
+        }
+    }
+    public function __get($property){
+        if(property_exists($this, $property)){
+            return $this-> $property;
+        }
+    }
+
+
+    
 }
 
 echo "Book cover type: " . Book::HARD_COVER;
