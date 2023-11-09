@@ -1,8 +1,22 @@
 <?php
+
+class Publisher{
+    public $name;
+    public $address;
+
+    public function __construct($name, $address){
+        $this-> name = $name;
+        $this-> address = $address;
+    }
+}
+
 class Book {
     private $title;    
     private $author;
     private $isbn;
+
+    //for exercise 7
+    private $publisher; // this is an object of class Publisher
 
     const HARD_COVER=1;
     const SOFT_COVER=2;
@@ -15,11 +29,19 @@ class Book {
         return self::$count;
     }
 
-    public function __construct($title, $author, $isbn){
+    public function __construct($title, $author, $isbn, Publisher $publisher){
         self::$count++; //ex3
         $this->title=$title;
         $this->author=$author;
         $this->isbn=$isbn;
+
+        // ex7
+        $this->publisher=$publisher;
+    }
+    //ex7
+    public function __clone(){
+        // perform a deep copy of the publisher object
+        $this->publisher= clone $this->publisher;
     }
     
     public function getTitle(){
@@ -56,4 +78,18 @@ unset($book); // this will trigger the destructor for $book
 
 
 echo "Book cover type: " . Book::HARD_COVER;
+
+
+
+
+//ex7
+//Usage example
+$publisher = new Publisher('Penguin', '123 Penguin Road, Antarctica');
+$bookTwo = new Book('harry potter and the philosophers stone', '
+J. K. Rowling', '1234567890');
+
+//Clone the book
+$cloneBookTwo = clone $bookTwo;
+
+
 ?>
