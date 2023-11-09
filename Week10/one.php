@@ -44,10 +44,16 @@ class Book {
         }
     }
 
-
+    public function __destruct(){
+        echo $this->title . " is being destroyed.\n";
+    }    
 
 }
 
-echo "Book cover type: " . Book::HARD_COVER;
+$book = new Book('1984', 'George Orwell', '1234567890');
+$cloneBook = clone $book;
+unset($book); // this will trigger the destructor for $book
 
+
+echo "Book cover type: " . Book::HARD_COVER;
 ?>
