@@ -35,7 +35,7 @@ class Book {
     //EX5
     public function __set($property, $value){
         if(property_exists($this, $property)){
-            $this->$property=$value; // Implement validation if necessary
+            $this->$property=$value;
         }
     }
     public function __get($property){
@@ -45,7 +45,7 @@ class Book {
     }
 
 
-    
+
 }
 
 echo "Book cover type: " . Book::HARD_COVER;
