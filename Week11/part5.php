@@ -1,5 +1,4 @@
 <?php 
-//delete
 // delete_post.php
 $id = $_GET['id'];
 $mysqli = new mysqli('localhost', 'username', 'password', 'blog');
