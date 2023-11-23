@@ -20,9 +20,3 @@ $dog->makeSound(); // Output: Bark
 
 $cat = new Cat();
 $cat->makeSound(); // Output: Meow
-
-class Logger {
-    final public function writeLog($message) {
-        echo "Log: $message\n";
-    }
-}
